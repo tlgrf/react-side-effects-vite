@@ -1,10 +1,13 @@
-// Step 1: Accept `joke` and `loading` as props
-
-const JokeDisplay = ({ joke, loading }) => {
+const JokeDisplay = ({ joke, loading, error }) => {
   return (
     <div className="joke-container">
-      {/* Step 2: If `loading` is true, display "Loading..." */}
-      {/* Step 3: Otherwise, display the joke */}
+      {error ? (
+        <p className="error">Error: {error}</p>
+      ) : loading ? (
+        <p>Loading...</p>
+      ) : (
+        <p className="joke">{joke}</p>
+      )}
     </div>
   )
 }
